@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:jelajah_nusantara/artikel/artikel_screen.dart';
+import 'package:jelajah_nusantara/artikel/bottom_navbar.dart';
 import 'package:jelajah_nusantara/controllers/artikel_controller.dart';
 import 'package:jelajah_nusantara/controllers/auth_controller.dart';
 import 'package:jelajah_nusantara/models/artikel_model.dart';
@@ -115,14 +117,14 @@ class _HomeState extends State<Home> {
                               final user = snapshot.data!;
                               return Column(
                                 children: [
-                                       Text(
-                                          user.name,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                            fontSize: 18
-                                          ),
-                                        )
+                                  Text(
+                                    user.name,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                    ),
+                                  ),
                                 ],
                               );
                             }
@@ -201,7 +203,7 @@ class _HomeState extends State<Home> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Lihar Artikel Kamu',
+                                        'Lihat Artikel Kamu',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -212,7 +214,7 @@ class _HomeState extends State<Home> {
                                         'Yuk Mulai Artikel Kamu Sendiri',
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 12,
+                                          fontSize: 10,
                                         ),
                                       ),
                                     ],
@@ -221,7 +223,15 @@ class _HomeState extends State<Home> {
                                   CircleAvatar(
                                     backgroundColor: Colors.white,
                                     child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                BottomNavbar(),
+                                          ),
+                                        );
+                                      },
                                       icon: Icon(
                                         Icons.arrow_forward,
                                         color: Color(0XFFD1A824),

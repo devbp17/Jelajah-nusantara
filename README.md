@@ -10,3 +10,15 @@ Aplikasi untuk berbagi tempat destinasi yang bisa dilihat oleh semua orang
 - Mengganti foto profil
 - Logout
 
+# Package
+
+- flutter_svg
+- http
+- shared_preferences
+- image_picker
+- file_picker
+- path_provider
+
+# Tech stack
+
+- Flutter 

@@ -115,19 +115,14 @@ class _HomeState extends State<Home> {
                               final user = snapshot.data!;
                               return Column(
                                 children: [
-                                  loadingProfile
-                                      ? Text(
+                                       Text(
                                           user.name,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 16,
                                             color: Colors.black,
+                                            fontSize: 18
                                           ),
                                         )
-                                      : Text(
-                                          username,
-                                          style: TextStyle(color: Colors.black),
-                                        ),
                                 ],
                               );
                             }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jelajah_nusantara/artikel/form_Screen.dart';
 import 'package:jelajah_nusantara/controllers/artikel_controller.dart';
+import 'package:jelajah_nusantara/controllers/auth_controller.dart';
 import 'package:jelajah_nusantara/models/artikel_model.dart';
 import 'package:jelajah_nusantara/screens/widgets/grid_artikelScreen.dart';
 
@@ -34,7 +35,31 @@ class ArtikelScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text("Username", style: TextStyle(fontSize: 15)),
+                        FutureBuilder(
+                          future: AuthController.getProfile(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return CircularProgressIndicator();
+                            } else if (snapshot.hasError) {
+                              return Text("Error : ${snapshot.error}");
+                            } else {
+                              final user = snapshot.data!;
+                              return Column(
+                                children: [
+                                       Text(
+                                          user.name,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 18
+                                          ),
+                                        )
+                                ],
+                              );
+                            }
+                          },
+                        ),
                       ],
                     ),
                     Spacer(),
